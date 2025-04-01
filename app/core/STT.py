@@ -1,4 +1,10 @@
 import speech_recognition as sr
+from config import STTConfig
+
+class STT:
+    def __init__(self, control : STTConfig):
+        self.control = control
+        
 
 def listen_sounde():
     try:
@@ -7,7 +13,7 @@ def listen_sounde():
         with sr.Microphone() as sound:
             speech.adjust_for_ambient_noise(source=sound, duration=0.5)
             audio = speech.listen(source=sound)
-            query = speech.recognize_google(audio_data=audio, language='en-US').lower()
+            query = speech.recognize_google(audio_data=audio, language='ru-RU').lower()
     
         return query
     except sr.UnknownValueError as e:
