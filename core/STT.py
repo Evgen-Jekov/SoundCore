@@ -1,5 +1,5 @@
 import speech_recognition as sr
-from config import STTConfig
+from .config import STTConfig
 
 class STT:
     def __init__(self, control : STTConfig):
